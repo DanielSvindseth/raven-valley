@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://o3ot23wfkgyf"]
+
+[ext_resource type="Environment" uid="uid://dhlo8ksm767l7" path="res://world_1.tres" id="1_eygof"]
+[ext_resource type="Texture2D" uid="uid://dmt7too0jndhw" path="res://background.jpg" id="2_vqg6g"]
+[ext_resource type="Texture2D" uid="uid://ss5ois8nb6bj" path="res://assets/textures/person_1.png" id="3_6eecn"]
+[ext_resource type="TileSet" uid="uid://bv11cf0iw6bky" path="res://terrain_tileset.tres" id="3_304ae"]
+[ext_resource type="Script" path="res://characters/Player.gd" id="5_vbrll"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_gmvim"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_11whm"]
+radius = 2.5
+height = 5.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qq7pl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_470wg"]
+size = Vector2(179, 20)
+
+[node name="World_1" type="Node2D"]
+texture_filter = 1
+position = Vector2(0, 192)
+scale = Vector2(4, 4)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_eygof")
+camera_attributes = SubResource("CameraAttributesPractical_gmvim")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+follow_viewport_enabled = true
+
+[node name="Background" type="Sprite2D" parent="ParallaxBackground"]
+z_index = 16
+position = Vector2(886, 43)
+texture = ExtResource("2_vqg6g")
+metadata/_edit_lock_ = true
+
+[node name="TileMap" type="TileMap" parent="."]
+z_index = 1
+tile_set = ExtResource("3_304ae")
+collision_visibility_mode = 1
+format = 2
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(9.75, -11.5)
+motion_mode = 1
+script = ExtResource("5_vbrll")
+metadata/_edit_group_ = true
+
+[node name="PlayerSprite" type="Sprite2D" parent="Player"]
+position = Vector2(-4, 3)
+texture = ExtResource("3_6eecn")
+
+[node name="PlayerCollision" type="CollisionShape2D" parent="Player"]
+z_index = -1
+position = Vector2(-5, 8.5)
+shape = SubResource("CapsuleShape2D_11whm")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+material = SubResource("CanvasItemMaterial_qq7pl")
+position = Vector2(89.5, 10.75)
+shape = SubResource("RectangleShape2D_470wg")

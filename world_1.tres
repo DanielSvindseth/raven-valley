@@ -1,0 +1,8 @@
+[gd_resource type="Environment" load_steps=2 format=3 uid="uid://dhlo8ksm767l7"]
+
+[sub_resource type="Sky" id="Sky_lid8s"]
+
+[resource]
+background_mode = 1
+background_color = Color(0.235294, 0.564706, 0.858824, 1)
+sky = SubResource("Sky_lid8s")
