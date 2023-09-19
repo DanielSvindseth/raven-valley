@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://o3ot23wfkgyf"]
 
 [ext_resource type="Environment" uid="uid://dhlo8ksm767l7" path="res://world_1.tres" id="1_eygof"]
-[ext_resource type="Texture2D" uid="uid://dmt7too0jndhw" path="res://background.jpg" id="2_vqg6g"]
-[ext_resource type="Texture2D" uid="uid://ss5ois8nb6bj" path="res://assets/textures/person_1.png" id="3_6eecn"]
+[ext_resource type="Texture2D" uid="uid://de077j3rh0rkh" path="res://assets/textures/backgrounds/background.jpg" id="2_8tiv3"]
 [ext_resource type="TileSet" uid="uid://bv11cf0iw6bky" path="res://terrain_tileset.tres" id="3_304ae"]
+[ext_resource type="Texture2D" uid="uid://ss5ois8nb6bj" path="res://assets/textures/entities/person_1.png" id="5_bkmhs"]
 [ext_resource type="Script" path="res://characters/Player.gd" id="5_vbrll"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_gmvim"]
@@ -32,7 +32,7 @@ follow_viewport_enabled = true
 [node name="Background" type="Sprite2D" parent="ParallaxBackground"]
 z_index = 16
 position = Vector2(886, 43)
-texture = ExtResource("2_vqg6g")
+texture = ExtResource("2_8tiv3")
 metadata/_edit_lock_ = true
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -49,7 +49,7 @@ metadata/_edit_group_ = true
 
 [node name="PlayerSprite" type="Sprite2D" parent="Player"]
 position = Vector2(-4, 3)
-texture = ExtResource("3_6eecn")
+texture = ExtResource("5_bkmhs")
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="Player"]
 z_index = -1
